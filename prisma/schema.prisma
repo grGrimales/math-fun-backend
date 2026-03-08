@@ -1,0 +1,31 @@
+// prisma/schema.prisma
+
+// 💡 El bloque datasource DEBE estar, pero sin la línea de 'url'
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelo para los usuarios (tú y Lucia)
+model User {
+  id        String      @id @default(uuid())
+  email     String      @unique
+  password  String
+  name      String
+  scores    GameScore[]
+  createdAt DateTime    @default(now())
+}
+
+// Modelo para guardar los resultados de las partidas
+model GameScore {
+  id         String   @id @default(uuid())
+  gameType   String   // 'addition', 'subtraction', 'multiplication'
+  score      Int
+  difficulty String   // 'easy', 'medium', 'hard'
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  createdAt  DateTime @default(now())
+}
