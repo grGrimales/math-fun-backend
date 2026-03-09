@@ -1,3 +1,4 @@
+import 'dotenv/config'; // 👈 Esto debe ser lo primero, antes que el NestFactory
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 

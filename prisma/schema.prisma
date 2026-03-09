@@ -1,12 +1,12 @@
 // prisma/schema.prisma
-
-// 💡 El bloque datasource DEBE estar, pero sin la línea de 'url'
-datasource db {
-  provider = "postgresql"
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"  // <--- Agrega esta línea
 }
 
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 // Modelo para los usuarios (tú y Lucia)
