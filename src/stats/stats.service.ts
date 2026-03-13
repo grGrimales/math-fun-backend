@@ -33,4 +33,12 @@ export class StatsService {
             streak: uniqueDays,
         };
     }
+
+    async getRecentActivity(userId: string) {
+        return this.prisma.gameScore.findMany({
+            where: { userId },
+            orderBy: { createdAt: 'desc' },
+            take: 5,
+        });
+    }
 }
