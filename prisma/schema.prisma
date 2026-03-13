@@ -1,7 +1,6 @@
-// prisma/schema.prisma
 generator client {
   provider   = "prisma-client-js"
-  engineType = "library"  // <--- Agrega esta línea
+  engineType = "library"  
 }
 
 datasource db {
@@ -9,7 +8,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Modelo para los usuarios (tú y Lucia)
 model User {
   id        String      @id @default(uuid())
   email     String      @unique
@@ -19,7 +17,6 @@ model User {
   createdAt DateTime    @default(now())
 }
 
-// Modelo para guardar los resultados de las partidas
 model GameScore {
   id         String   @id @default(uuid())
   gameType   String   // 'addition', 'subtraction', 'multiplication'
