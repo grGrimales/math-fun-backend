@@ -1,6 +1,6 @@
 import { Controller, Post, Get, Body, UseGuards, Req } from '@nestjs/common';
 import { StatsService } from './stats.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateScoreDto } from './dto/create-score.dto';
 
 
