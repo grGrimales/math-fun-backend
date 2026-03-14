@@ -6,7 +6,6 @@ import { Pool } from '@neondatabase/serverless';
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
     constructor() {
-        console.log('DEBUG: La URL detectada es:', process.env.DATABASE_URL ? '✅ Cargada' : '❌ NULA');
         const adapter = new PrismaNeon({ connectionString: process.env.DATABASE_URL });
         super({ adapter });
     }
